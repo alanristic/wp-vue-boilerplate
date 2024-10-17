@@ -1,7 +1,9 @@
-import { createApp } from 'vue';
+import { createApp } from 'vue'
 
-import '../../assets/tailwind.css';
+import '../../assets/tailwind.css' // Import TailwindCSS
 
-const app = createApp({});
+console.log('Hello from admin/Bits/elements.js')
 
-export default app;
+const app = createApp({})
+
+export default app

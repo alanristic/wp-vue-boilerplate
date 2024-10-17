@@ -2,7 +2,7 @@
   <div>
     <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
       <section>
-        <span class="block text-6xl font-bold mb-1">Dashboard Page vite test</span>
+        <span class="block text-6xl font-bold mb- text-green-500">Dashboard Page vite test</span>
         <div class="text-2xl text-primary font-bold mb-3">Created by Alfred</div>
         <p class="mt-0 mb-4 text-700 line-height-3">No need to reload your page 🥳</p>
         <a

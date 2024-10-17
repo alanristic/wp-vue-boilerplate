@@ -176,6 +176,8 @@ function convertToUppercase(Text) {
  * so that they conform to WordPress Plugin standards (aka naming conventions) and make
  * plugin functional/ready to be developed.
  */
+const pattern = '{*,!(node_modules)/**/*}.php' // Modify the pattern to include files at the root level and in subdirectories
+
 terminal.question('Please enter Plugin Name: ', function (pluginName) {
   if (!pluginName.includes('-')) {
     terminal.question('Please enter Author Name: ', function (authorName) {
@@ -188,7 +190,7 @@ terminal.question('Please enter Plugin Name: ', function (pluginName) {
         console.log('👉 DBG: Author Name: ' + authorName)
         console.log('👉 DBG: URL: ' + url)
 
-        glob('!(node_modules)/*/*.*')
+        glob('{*,!(node_modules)/**/*}.php')
           .then((files) => {
             if (files.length === 0) {
               console.log('😵 No files found matching the pattern')
@@ -208,7 +210,7 @@ terminal.question('Please enter Plugin Name: ', function (pluginName) {
                   PluginClassName: Camel,
                   pluginlowercase: Lowercase,
                   PLUGIN_CONST: Uppercase,
-                  PluginName: pluginName,
+                  PluginName: Pascal,
                   pluginslug: Slug,
                   YourName: authorName,
                   YourURL: url

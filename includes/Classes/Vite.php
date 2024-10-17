@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginClassName\Classes;
+namespace productio\Classes;
 
 use Exception;
 
@@ -97,9 +97,9 @@ class Vite
             return;
         }
 
-        $manifestPath = realpath(__DIR__) . '/../../assets/manifest.json';
+        $manifestPath = realpath(__DIR__) . '/../../assets/.vite/manifest.json';
         if (!file_exists($manifestPath)) {
-            throw new Exception('Vite Manifest Not Found. Run : npm run dev or npm run prod');
+            throw new Exception('Vite Manifest Not Found. Run : npm run dev or npm run production');
         }
         $manifestFile = fopen($manifestPath, "r");
         $manifestData = fread($manifestFile, filesize($manifestPath));
@@ -128,7 +128,8 @@ class Vite
 
     public static function isDevMode(): bool
     {
-        return defined('VVT_BOILERPLATE_DEVELOPMENT') && VVT_BOILERPLATE_DEVELOPMENT === 'yes';
+        var_dump(PRODUCTIO_DEVELOPMENT);
+        return defined('PRODUCTIO_DEVELOPMENT') && PRODUCTIO_DEVELOPMENT === 'yes';
     }
 
     private static function getDevPath(): string
@@ -138,7 +139,7 @@ class Vite
 
     private static function getAssetPath(): string
     {
-        return VVT_BOILERPLATE_URL . 'assets/';
+        return PRODUCTIO_URL . 'assets/';
     }
 
     private static function getProductionFilePath($file): string

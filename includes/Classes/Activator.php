@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginClassName\Classes;
+namespace productio\Classes;
 
 if (!defined('ABSPATH')) {
     exit;

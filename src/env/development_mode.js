@@ -1,7 +1,9 @@
 import { glob } from 'glob' // Import the 'glob' function
 import { readFileSync, writeFile } from 'fs' // Import specific functions
 
-glob('plugin-entry.php')
+const pattern = '../plugin-entry.php' // Modify the pattern to search from the parent director
+
+glob(pattern)
   .then((files) => {
     if (files.length === 0) {
       console.log('😵 No files found matching the pattern:', pattern)
@@ -10,10 +12,10 @@ glob('plugin-entry.php')
         const content = readFileSync(file, 'utf8')
 
         const mapObj = {
-          VVT_BOILERPLATE_PRODUCTION: 'VVT_BOILERPLATE_DEVELOPMENT'
+          PRODUCTIO_PRODUCTION: 'PRODUCTIO_DEVELOPMENT'
         }
 
-        const result = data.replace(/VVT_BOILERPLATE_PRODUCTION/gi, function (matched) {
+        const result = content.replace(/PRODUCTIO_PRODUCTION/gi, function (matched) {
           return mapObj[matched]
         })
 

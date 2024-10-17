@@ -3,13 +3,13 @@
 /**
  * Autoloader
  *
- * @package PluginClassName
+ * @package productio
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
-if (!function_exists('PluginClassNameAutoload')) {
+if (!function_exists('productioAutoload')) {
     /**
      * Plugin autoloader.
      *
@@ -21,10 +21,10 @@ if (!function_exists('PluginClassNameAutoload')) {
      *
      * @param $class
      */
-    function PluginClassNameAutoload($class)
+    function productioAutoload($class)
     {
         // Do not load unless in plugin domain.
-        $namespace = 'PluginClassName';
+        $namespace = 'productio';
         if (strpos($class, $namespace) !== 0) {
             return;
         }
@@ -45,5 +45,5 @@ if (!function_exists('PluginClassNameAutoload')) {
     }
     
     // Register the autoloader.
-    spl_autoload_register('PluginClassNameAutoload');
+    spl_autoload_register('productioAutoload');
 }

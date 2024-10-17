@@ -1,12 +1,12 @@
 <?php
 
-namespace PluginClassName\Classes;
+namespace productio\Classes;
 
 class LoadAssets
 {
     public function admin()
     {
-        Vite::enqueueScript('pluginlowercase-script-boot', 'admin/start.js', array('jquery'), PLUGIN_CONST_VERSION, true);
+        Vite::enqueueScript('productio-script-boot', 'admin/start.js', array('jquery'), PRODUCTIO_VERSION, true);
     }
   
 }
